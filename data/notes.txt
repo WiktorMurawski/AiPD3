@@ -1,0 +1,18 @@
+01 - przestery
+02 - ok
+03 - ok
+04 - ok
+05 - ok
+06 - ok
+07 - ok
+08 - ok
+09 - ok
+10 - brak 0_1.wav, skopiowano 0_2.wav do 0_1.wav
+13 - ok
+14 - ok
+16 - ok
+22 - ok
+23 - ok 
+24 - ok
+25 - ok
+28 - ok
