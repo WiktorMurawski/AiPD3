@@ -1,17 +1,11 @@
 """
 evaluate.py
-===========
+
 Ewaluacja klasyfikatora MFCC + DTW na zbiorze testowym.
 
 Uruchomienie:
     python evaluate.py --data data/raw --split repetition
     python evaluate.py --data data/raw --split speaker --test-speakers speaker_1 speaker_2
-
-Wyniki:
-    - Dokładność ogólna (accuracy)
-    - Dokładność per klasa
-    - Macierz pomyłek (tekstowa)
-    - Zapis wyników do results/
 """
 
 import sys
@@ -27,10 +21,6 @@ sys.path.insert(0, str(Path(__file__).parent))
 from dataset import load_dataset, ALL_LABELS
 from dtw import DTWClassifier
 
-
-# ---------------------------------------------------------------------------
-# Macierz pomyłek
-# ---------------------------------------------------------------------------
 
 def confusion_matrix(
     y_true: list[str],
@@ -49,7 +39,6 @@ def confusion_matrix(
 
 def print_confusion_matrix(cm: np.ndarray, labels: list[str]) -> None:
     """Wypisuje macierz pomyłek w czytelnym formacie tekstowym."""
-    # Skróć etykiety do 5 znaków dla czytelności
     short = [l[:5].ljust(5) for l in labels]
     col_w = 6
 
@@ -59,7 +48,7 @@ def print_confusion_matrix(cm: np.ndarray, labels: list[str]) -> None:
 
     for i, label in enumerate(labels):
         row_vals = "  ".join(f"{cm[i, j]:>{col_w}}" for j in range(len(labels)))
-        marker   = "  ←" if any(cm[i, j] > 0 for j in range(len(labels)) if j != i) else ""
+        marker   = "  <-" if any(cm[i, j] > 0 for j in range(len(labels)) if j != i) else ""
         print(f"{label[:9]:<10}{row_vals}{marker}")
 
 
@@ -70,15 +59,15 @@ def per_class_stats(
     """
     Oblicza precision, recall i F1 dla każdej klasy.
 
-    Precision = TP / (TP + FP)  – ile predykcji danej klasy jest trafnych
-    Recall    = TP / (TP + FN)  – ile próbek danej klasy zostało wykrytych
+    Precision = TP / (TP + FP)  - ile predykcji danej klasy jest trafnych
+    Recall    = TP / (TP + FN)  - ile próbek danej klasy zostało wykrytych
     F1        = 2 * P * R / (P + R)
     """
     stats = {}
     for i, label in enumerate(labels):
         tp = cm[i, i]
-        fp = cm[:, i].sum() - tp   # inne klasy predykowane jako ta
-        fn = cm[i, :].sum() - tp   # ta klasa predykowana jako inne
+        fp = cm[:, i].sum() - tp
+        fn = cm[i, :].sum() - tp
 
         precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
         recall    = tp / (tp + fn) if (tp + fn) > 0 else 0.0
@@ -95,10 +84,6 @@ def per_class_stats(
     return stats
 
 
-# ---------------------------------------------------------------------------
-# Główna ewaluacja
-# ---------------------------------------------------------------------------
-
 def evaluate(
     data_dir:      str | Path,
     split:         str        = "repetition",
@@ -109,18 +94,9 @@ def evaluate(
     results_dir:   str | Path = "results",
     verbose:       bool       = True,
 ) -> dict:
-    """
-    Pełna ewaluacja: ładowanie danych → trening → predykcja → metryki.
-
-    Returns
-    -------
-    results : dict
-        Słownik z dokładnością, macierzą pomyłek, statystykami per klasa.
-    """
     results_dir = Path(results_dir)
     results_dir.mkdir(exist_ok=True)
 
-    # --- Dane ---
     templates, test_recs = load_dataset(
         data_dir,
         split=split,
@@ -129,11 +105,9 @@ def evaluate(
         verbose=verbose,
     )
 
-    # --- Klasyfikator ---
     clf = DTWClassifier(metric=dtw_metric, window=dtw_window)
     clf.fit(templates)
 
-    # --- Predykcja ---
     print(f"\nKlasyfikacja {len(test_recs)} nagrań testowych...")
     t0 = time.time()
 
@@ -156,13 +130,11 @@ def evaluate(
 
     elapsed = time.time() - t0
 
-    # --- Metryki ---
     cm      = confusion_matrix(y_true, y_pred, ALL_LABELS)
     correct = sum(t == p for t, p in zip(y_true, y_pred))
     accuracy = correct / len(y_true) if y_true else 0.0
     stats   = per_class_stats(cm, ALL_LABELS)
 
-    # --- Wydruk ---
     print(f"\n{'='*60}")
     print(f"  WYNIKI EWALUACJI")
     print(f"{'='*60}")
@@ -193,7 +165,6 @@ def evaluate(
                 for err in errors_by_label[label]:
                     print(f"    {err}")
 
-    # --- Zapis wyników ---
     results = {
         "config": {
             "split":         split,
@@ -224,10 +195,6 @@ def evaluate(
 
     return results
 
-
-# ---------------------------------------------------------------------------
-# CLI
-# ---------------------------------------------------------------------------
 
 def main():
     parser = argparse.ArgumentParser(

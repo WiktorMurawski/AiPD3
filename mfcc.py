@@ -1,117 +1,66 @@
 """
 mfcc.py
-=======
-Implementacja ekstrakcji współczynników mel-cepstralnych (MFCC) od zera.
+
+Implementacja ekstrakcji współczynników mel-cepstralnych (MFCC)
 
 Pipeline dla każdej ramki:
-    1. FFT              – widmo amplitudowe
-    2. Potęgowanie      – periodogram (widmo mocy)
-    3. Filtrbank Mela   – 26 trójkątnych filtrów w skali Mela
-    4. Logarytm         – kompresja dynamiki (imituje percepcję głośności)
-    5. DCT              – dekorelacja → 13 współczynników MFCC
-    6. Delta + ΔΔ       – dynamika zmian w czasie (opcjonalnie)
-
-Wynik końcowy: macierz cech (n_frames × 39) dla 13 MFCC + 13 Δ + 13 ΔΔ.
+    1. FFT
+    2. Potęgowanie
+    3. Filtrbank Mela
+    4. Logarytm 
+    5. DCT
+    6. Delta + ΔΔ
 """
 
 import numpy as np
 
 
-# ---------------------------------------------------------------------------
-# 1. Skala Mela – konwersje Hz ↔ Mel
-# ---------------------------------------------------------------------------
-
 def hz_to_mel(hz: float | np.ndarray) -> float | np.ndarray:
     """
-    Konwertuje częstotliwości w Hz na skalę Mela (wzór O'Shauhnessy'ego).
-
-    Skala Mela odzwierciedla nieliniową percepcję wysokości dźwięku przez
-    ludzkie ucho: jesteśmy czulsi na różnice w niskich częstotliwościach
-    niż w wysokich.
-
+    Konwertuje częstotliwości w Hz na skalę Mela.
     Wzór: mel = 2595 * log10(1 + hz / 700)
     """
     return 2595.0 * np.log10(1.0 + hz / 700.0)
 
 
 def mel_to_hz(mel: float | np.ndarray) -> float | np.ndarray:
-    """Odwrotność hz_to_mel."""
+    """
+    Odwrotność hz_to_mel
+    """
     return 700.0 * (10.0 ** (mel / 2595.0) - 1.0)
 
 
-# ---------------------------------------------------------------------------
-# 2. Filtrbank Mela
-# ---------------------------------------------------------------------------
-
-def mel_filterbank(
+def mel_filterbank_old(
     n_filters: int,
     frame_len: int,
     sample_rate: int,
     f_min: float = 0.0,
     f_max: float | None = None,
 ) -> np.ndarray:
-    """
-    Tworzy macierz filtrów trójkątnych w skali Mela.
-
-    Każdy filtr to trójkąt w dziedzinie częstotliwości: rośnie liniowo
-    od 0 do 1 (szczyt), a potem opada z powrotem do 0. Filtry nakładają
-    się na siebie, a ich środki są rozmieszczone równomiernie w skali Mela.
-
-    Parameters
-    ----------
-    n_filters : int
-        Liczba filtrów Mela. Typowo 26.
-    frame_len : int
-        Długość ramki w próbkach (np. 400 dla 25ms @ 16kHz).
-        Potrzebna do obliczenia rozdzielczości FFT.
-    sample_rate : int
-        Częstotliwość próbkowania w Hz.
-    f_min : float
-        Dolna granica filtrów w Hz. Typowo 0.
-    f_max : float lub None
-        Górna granica filtrów w Hz. Domyślnie: sample_rate / 2 (Nyquist).
-
-    Returns
-    -------
-    filterbank : np.ndarray, shape (n_filters, n_fft_bins)
-        Macierz filtrów. filterbank[i] to wagi i-tego filtra dla każdego binu FFT.
-
-    Jak działa:
-    -----------
-        1. Wybieramy n_filters + 2 punktów równomiernie w skali Mela
-           (n_filters środków + 2 krawędzie).
-        2. Konwertujemy z powrotem do Hz, a potem na indeksy binów FFT.
-        3. Dla każdego filtra budujemy trójkąt między sąsiednimi punktami.
-    """
     if f_max is None:
         f_max = sample_rate / 2.0
 
-    n_fft = frame_len // 2 + 1  # liczba unikalnych binów FFT (symetria)
+    n_fft = frame_len // 2 + 1
 
-    # n_filters + 2 punkty równomiernie rozłożone w skali Mela
     mel_min = hz_to_mel(f_min)
     mel_max = hz_to_mel(f_max)
     mel_points = np.linspace(mel_min, mel_max, n_filters + 2)
 
-    # Konwersja → Hz → indeksy binów FFT
     hz_points  = mel_to_hz(mel_points)
     bin_points = np.floor((frame_len + 1) * hz_points / sample_rate).astype(int)
     bin_points = np.clip(bin_points, 0, n_fft - 1)
 
-    # Budowanie macierzy filtrów
     filterbank = np.zeros((n_filters, n_fft))
 
     for m in range(n_filters):
-        left   = bin_points[m]      # lewe zero trójkąta
-        center = bin_points[m + 1]  # szczyt trójkąta
-        right  = bin_points[m + 2]  # prawe zero trójkąta
+        left   = bin_points[m]
+        center = bin_points[m + 1]
+        right  = bin_points[m + 2] 
 
-        # Rosnące zbocze (left → center)
         if center > left:
             for k in range(left, center + 1):
                 filterbank[m, k] = (k - left) / (center - left)
 
-        # Opadające zbocze (center → right)
         if right > center:
             for k in range(center, right + 1):
                 filterbank[m, k] = (right - k) / (right - center)
@@ -127,10 +76,7 @@ def mel_filterbank_fast(
     f_max: float | None = None,
 ) -> np.ndarray:
     """
-    Wektorowa (szybka) wersja mel_filterbank – bez pętli Pythona.
-
-    Identyczny wynik co mel_filterbank, ale ~100× szybsza dla dużych filtrbanków.
-    Używana w praktyce; mel_filterbank zostawiona dla czytelności algorytmu.
+    Wektorowa wersja mel_filterbank bez pętli
     """
     if f_max is None:
         f_max = sample_rate / 2.0
@@ -144,15 +90,12 @@ def mel_filterbank_fast(
     bin_points = np.floor((frame_len + 1) * hz_points / sample_rate).astype(int)
     bin_points = np.clip(bin_points, 0, n_fft - 1)
 
-    # Indeksy binów FFT: shape (1, n_fft)
     k = np.arange(n_fft)[np.newaxis, :]
 
-    # Krawędzie każdego filtra: shape (n_filters, 1)
     left   = bin_points[:-2, np.newaxis]
     center = bin_points[1:-1, np.newaxis]
     right  = bin_points[2:,  np.newaxis]
 
-    # Zbocze rosnące i opadające (wektorowo, unikamy dzielenia przez 0)
     denom_up   = np.where(center > left,  center - left,  1)
     denom_down = np.where(right  > center, right - center, 1)
 
@@ -162,37 +105,20 @@ def mel_filterbank_fast(
     return up + down
 
 
-# ---------------------------------------------------------------------------
-# 3. DCT-II (dyskretna transformata kosinusowa)
-# ---------------------------------------------------------------------------
-
 def dct_matrix(n_filters: int, n_ceps: int) -> np.ndarray:
     """
     Tworzy macierz DCT-II do wyodrębnienia n_ceps współczynników z n_filters wartości.
 
     Wzór (typ II, ortogonalna):
-        DCT[k, n] = cos(π/N * (n + 0.5) * k)   dla k = 0..K-1, n = 0..N-1
+        DCT[k, n] = cos(pi/N * (n + 0.5) * k)   dla k = 0..K-1, n = 0..N-1
 
-    Używamy wersji bez normalizacji (standard dla MFCC).
-    W praktyce pomijamy współczynnik k=0 (energia DC) i bierzemy k=1..13.
-
-    Parameters
-    ----------
-    n_filters : int  – liczba wejść (wyjście filtrbanku), np. 26
-    n_ceps    : int  – liczba wyjść (MFCC), np. 13
-
-    Returns
-    -------
-    dct : np.ndarray, shape (n_ceps, n_filters)
+    n_filters - liczba wejść (wyjście filtrbanku)
+    n_ceps - liczba wyjść (MFCC)
     """
-    n = np.arange(n_filters)[np.newaxis, :]        # (1, n_filters)
-    k = np.arange(n_ceps)[:, np.newaxis]            # (n_ceps, 1)
+    n = np.arange(n_filters)[np.newaxis, :]
+    k = np.arange(n_ceps)[:, np.newaxis]
     return np.cos(np.pi / n_filters * (n + 0.5) * k)
 
-
-# ---------------------------------------------------------------------------
-# 4. Główna funkcja ekstrakcji MFCC
-# ---------------------------------------------------------------------------
 
 def extract_mfcc(
     frames: np.ndarray,
@@ -205,53 +131,27 @@ def extract_mfcc(
     """
     Oblicza MFCC dla każdej ramki sygnału.
 
-    Parameters
-    ----------
-    frames : np.ndarray, shape (n_frames, frame_len)
-        Ramki po oknie Hamminga (wyjście preprocessing.apply_hamming).
-    sample_rate : int
-        Częstotliwość próbkowania.
-    n_filters : int
-        Liczba filtrów Mela. Standard: 26.
-    n_ceps : int
-        Liczba współczynników cepstralnych. Standard: 13.
-    f_min, f_max : float
-        Pasmo częstotliwości filtrów Mela.
-
-    Returns
-    -------
-    mfcc : np.ndarray, shape (n_frames, n_ceps)
-        Macierz MFCC – każdy wiersz to wektor cech jednej ramki.
-
-    Kroki:
-    ------
-    1. FFT → periodogram (widmo mocy)
-    2. Filtrbank Mela → energia w każdym paśmie Mela
-    3. Logarytm naturalny
-    4. DCT → współczynniki cepstralne
+    Zwraca Macierz MFCC - każdy wiersz to wektor cech jednej ramki.
     """
     n_frames, frame_len = frames.shape
-    n_fft = frame_len // 2 + 1  # liczba unikalnych binów po FFT (symetria)
+    n_fft = frame_len // 2 + 1  
 
-    # --- Krok 1: FFT + periodogram ---
+    # FFT + periodogram
     # np.fft.rfft zwraca tylko dodatnie częstotliwości (n_fft punktów)
     spectrum  = np.fft.rfft(frames, n=frame_len)   # (n_frames, n_fft), zespolone
     power_spec = (1.0 / frame_len) * (np.abs(spectrum) ** 2)  # (n_frames, n_fft)
 
-    # --- Krok 2: Filtrbank Mela ---
+    # Filtrbank Mela
     fb = mel_filterbank_fast(n_filters, frame_len, sample_rate, f_min, f_max)
-    # (n_filters, n_fft) @ (n_fft, n_frames)^T → (n_frames, n_filters)
-    filter_energies = power_spec @ fb.T            # (n_frames, n_filters)
-
-    # Zapobiegamy log(0) – zastępujemy zera bardzo małą wartością
+    filter_energies = power_spec @ fb.T
     filter_energies = np.where(filter_energies == 0, np.finfo(float).eps, filter_energies)
 
-    # --- Krok 3: Logarytm ---
-    log_energies = np.log(filter_energies)         # (n_frames, n_filters)
+    # Logarytm
+    log_energies = np.log(filter_energies) 
 
-    # --- Krok 4: DCT ---
-    dct = dct_matrix(n_filters, n_ceps)            # (n_ceps, n_filters)
-    mfcc = log_energies @ dct.T                    # (n_frames, n_ceps)
+    # Krok 4: DCT
+    dct = dct_matrix(n_filters, n_ceps) 
+    mfcc = log_energies @ dct.T
 
     return mfcc
 
@@ -312,16 +212,7 @@ def extract_mfcc_with_deltas(
     delta_n: int   = 2,
 ) -> np.ndarray:
     """
-    Pełna ekstrakcja cech: 13 MFCC + 13 Δ + 13 ΔΔ = 39 współczynników/ramkę.
-
-    Parameters
-    ----------
-    frames : np.ndarray, shape (n_frames, frame_len)
-
-    Returns
-    -------
-    features : np.ndarray, shape (n_frames, n_ceps * 3)
-        Kolumny: [mfcc | delta | delta-delta]
+    Pełna ekstrakcja cech MFCC, Δ, ΔΔ dla każdej ramki
     """
     mfcc        = extract_mfcc(frames, sample_rate, n_filters, n_ceps)
     delta       = compute_deltas(mfcc, N=delta_n)

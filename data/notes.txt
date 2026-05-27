@@ -1,5 +1,5 @@
 01 - przestery
-02 - ok
+02 - ok (f)
 03 - ok
 04 - ok
 05 - ok
@@ -12,7 +12,7 @@
 14 - ok
 16 - ok
 22 - ok
-23 - ok 
+23 - ok (f)
 24 - ok
 25 - ok
 28 - ok
