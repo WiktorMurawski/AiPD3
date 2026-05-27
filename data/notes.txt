@@ -11,7 +11,7 @@
 13 - ok
 14 - ok
 16 - ok
-22 - ok
+22 - nagrania często są ucięte
 23 - ok (f)
 24 - ok
 25 - ok

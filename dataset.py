@@ -11,7 +11,7 @@ from pathlib import Path
 from dataclasses import dataclass
 
 from preprocessing import preprocess
-from mfcc import extract_mfcc_with_deltas
+from mfcc import extract_mfcc_with_deltas, extract_mfcc
 
 
 DIGIT_LABELS = {
@@ -96,8 +96,7 @@ def extract_features(
     verbose:    bool  = True,
 ) -> list[Recording]:
     """
-    Uruchamia preprocessing + MFCC dla każdego nagrania i zapisuje wynik
-    w polu Recording.features.
+    Uruchamia preprocessing + MFCC dla każdego nagrania i zapisuje wynik w polu Recording.features
 
     Zwraca nagrania z wypełnionym polem features.
     """
@@ -120,7 +119,12 @@ def extract_features(
                 errors += 1
                 continue
 
-            rec.features = extract_mfcc_with_deltas(
+            # rec.features = extract_mfcc_with_deltas(
+            #     frames, sr,
+            #     n_filters=n_filters,
+            #     n_ceps=n_ceps,
+            # )
+            rec.features = extract_mfcc(
                 frames, sr,
                 n_filters=n_filters,
                 n_ceps=n_ceps,

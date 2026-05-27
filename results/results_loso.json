@@ -1,0 +1,158 @@
+{
+  "protocol": "leave-one-speaker-out",
+  "dtw_metric": "euclidean",
+  "dtw_window": 20,
+  "n_speakers": 17,
+  "mean_accuracy": 0.9519,
+  "total_correct": 356,
+  "total": 374,
+  "rounds": [
+    {
+      "speaker": "01",
+      "accuracy": 0.8636,
+      "correct": 19,
+      "total": 22,
+      "errors": [
+        "6_1.wav: sześć → cztery",
+        "6_2.wav: sześć → cztery",
+        "10_2.wav: dziesięć → sześć"
+      ]
+    },
+    {
+      "speaker": "02",
+      "accuracy": 1.0,
+      "correct": 22,
+      "total": 22,
+      "errors": []
+    },
+    {
+      "speaker": "03",
+      "accuracy": 1.0,
+      "correct": 22,
+      "total": 22,
+      "errors": []
+    },
+    {
+      "speaker": "04",
+      "accuracy": 1.0,
+      "correct": 22,
+      "total": 22,
+      "errors": []
+    },
+    {
+      "speaker": "05",
+      "accuracy": 0.9091,
+      "correct": 20,
+      "total": 22,
+      "errors": [
+        "0_1.wav: zero → trzy",
+        "7_1.wav: siedem → trzy"
+      ]
+    },
+    {
+      "speaker": "06",
+      "accuracy": 1.0,
+      "correct": 22,
+      "total": 22,
+      "errors": []
+    },
+    {
+      "speaker": "07",
+      "accuracy": 0.9091,
+      "correct": 20,
+      "total": 22,
+      "errors": [
+        "3_1.wav: trzy → zero",
+        "4_2.wav: cztery → zero"
+      ]
+    },
+    {
+      "speaker": "08",
+      "accuracy": 0.9545,
+      "correct": 21,
+      "total": 22,
+      "errors": [
+        "3_2.wav: trzy → siedem"
+      ]
+    },
+    {
+      "speaker": "09",
+      "accuracy": 0.9545,
+      "correct": 21,
+      "total": 22,
+      "errors": [
+        "5_2.wav: pięć → trzy"
+      ]
+    },
+    {
+      "speaker": "10",
+      "accuracy": 0.9545,
+      "correct": 21,
+      "total": 22,
+      "errors": [
+        "6_2.wav: sześć → dziesięć"
+      ]
+    },
+    {
+      "speaker": "13",
+      "accuracy": 1.0,
+      "correct": 22,
+      "total": 22,
+      "errors": []
+    },
+    {
+      "speaker": "14",
+      "accuracy": 0.9091,
+      "correct": 20,
+      "total": 22,
+      "errors": [
+        "5_1.wav: pięć → dziewięć",
+        "5_2.wav: pięć → dziewięć"
+      ]
+    },
+    {
+      "speaker": "22",
+      "accuracy": 0.8182,
+      "correct": 18,
+      "total": 22,
+      "errors": [
+        "1_2.wav: jeden → pięć",
+        "7_2.wav: siedem → trzy",
+        "9_1.wav: dziewięć → pięć",
+        "9_2.wav: dziewięć → dziesięć"
+      ]
+    },
+    {
+      "speaker": "23",
+      "accuracy": 1.0,
+      "correct": 22,
+      "total": 22,
+      "errors": []
+    },
+    {
+      "speaker": "24",
+      "accuracy": 0.9545,
+      "correct": 21,
+      "total": 22,
+      "errors": [
+        "5_1.wav: pięć → dziewięć"
+      ]
+    },
+    {
+      "speaker": "25",
+      "accuracy": 1.0,
+      "correct": 22,
+      "total": 22,
+      "errors": []
+    },
+    {
+      "speaker": "28",
+      "accuracy": 0.9545,
+      "correct": 21,
+      "total": 22,
+      "errors": [
+        "5_1.wav: pięć → dziewięć"
+      ]
+    }
+  ]
+}

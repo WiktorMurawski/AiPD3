@@ -1,0 +1,1770 @@
+{
+  "config": {
+    "split": "repetition",
+    "test_rep": 2,
+    "test_speakers": null,
+    "dtw_metric": "euclidean",
+    "dtw_window": 20
+  },
+  "accuracy": 0.9733,
+  "n_correct": 182,
+  "n_total": 187,
+  "elapsed_s": 29.41,
+  "confusion_matrix": [
+    [
+      17,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      16,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      17,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      17,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      16,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      15,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      17,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      17,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      17,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      17,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      16
+    ]
+  ],
+  "labels": [
+    "zero",
+    "jeden",
+    "dwa",
+    "trzy",
+    "cztery",
+    "pięć",
+    "sześć",
+    "siedem",
+    "osiem",
+    "dziewięć",
+    "dziesięć"
+  ],
+  "per_class": {
+    "zero": {
+      "tp": 17,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 17
+    },
+    "jeden": {
+      "tp": 16,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.9412,
+      "f1": 0.9697,
+      "support": 17
+    },
+    "dwa": {
+      "tp": 17,
+      "fp": 2,
+      "fn": 0,
+      "precision": 0.8947,
+      "recall": 1.0,
+      "f1": 0.9444,
+      "support": 17
+    },
+    "trzy": {
+      "tp": 17,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 17
+    },
+    "cztery": {
+      "tp": 16,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.9412,
+      "f1": 0.9697,
+      "support": 17
+    },
+    "pięć": {
+      "tp": 15,
+      "fp": 0,
+      "fn": 2,
+      "precision": 1.0,
+      "recall": 0.8824,
+      "f1": 0.9375,
+      "support": 17
+    },
+    "sześć": {
+      "tp": 17,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.9444,
+      "recall": 1.0,
+      "f1": 0.9714,
+      "support": 17
+    },
+    "siedem": {
+      "tp": 17,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 17
+    },
+    "osiem": {
+      "tp": 17,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 17
+    },
+    "dziewięć": {
+      "tp": 17,
+      "fp": 2,
+      "fn": 0,
+      "precision": 0.8947,
+      "recall": 1.0,
+      "f1": 0.9444,
+      "support": 17
+    },
+    "dziesięć": {
+      "tp": 16,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.9412,
+      "f1": 0.9697,
+      "support": 17
+    }
+  },
+  "predictions": [
+    {
+      "file": "data\\raw\\01\\0_2.wav",
+      "speaker": "01",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 9.6163,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\01\\1_2.wav",
+      "speaker": "01",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 8.7743,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\01\\2_2.wav",
+      "speaker": "01",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 6.682,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\01\\3_2.wav",
+      "speaker": "01",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 14.4432,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\01\\4_2.wav",
+      "speaker": "01",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 9.4445,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\01\\5_2.wav",
+      "speaker": "01",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 12.5654,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\01\\6_2.wav",
+      "speaker": "01",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 10.7614,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\01\\7_2.wav",
+      "speaker": "01",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 9.0574,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\01\\8_2.wav",
+      "speaker": "01",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 8.2735,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\01\\9_2.wav",
+      "speaker": "01",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 10.5766,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\01\\10_2.wav",
+      "speaker": "01",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 17.1922,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\02\\0_2.wav",
+      "speaker": "02",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 16.4689,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\02\\1_2.wav",
+      "speaker": "02",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 8.106,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\02\\2_2.wav",
+      "speaker": "02",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 10.8949,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\02\\3_2.wav",
+      "speaker": "02",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 9.669,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\02\\4_2.wav",
+      "speaker": "02",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 12.094,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\02\\5_2.wav",
+      "speaker": "02",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 13.189,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\02\\6_2.wav",
+      "speaker": "02",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 8.9635,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\02\\7_2.wav",
+      "speaker": "02",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 8.1258,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\02\\8_2.wav",
+      "speaker": "02",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 9.4742,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\02\\9_2.wav",
+      "speaker": "02",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 8.2688,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\02\\10_2.wav",
+      "speaker": "02",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 15.6456,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\03\\0_2.wav",
+      "speaker": "03",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 15.2042,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\03\\1_2.wav",
+      "speaker": "03",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 13.7176,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\03\\2_2.wav",
+      "speaker": "03",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 11.6579,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\03\\3_2.wav",
+      "speaker": "03",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 8.4019,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\03\\4_2.wav",
+      "speaker": "03",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 11.8982,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\03\\5_2.wav",
+      "speaker": "03",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 11.5429,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\03\\6_2.wav",
+      "speaker": "03",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 15.4758,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\03\\7_2.wav",
+      "speaker": "03",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 14.8791,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\03\\8_2.wav",
+      "speaker": "03",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 7.7035,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\03\\9_2.wav",
+      "speaker": "03",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 12.1814,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\03\\10_2.wav",
+      "speaker": "03",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 10.2196,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\04\\0_2.wav",
+      "speaker": "04",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 12.6,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\04\\1_2.wav",
+      "speaker": "04",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 14.3556,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\04\\2_2.wav",
+      "speaker": "04",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 15.8396,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\04\\3_2.wav",
+      "speaker": "04",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 9.6467,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\04\\4_2.wav",
+      "speaker": "04",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 8.4018,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\04\\5_2.wav",
+      "speaker": "04",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 16.612,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\04\\6_2.wav",
+      "speaker": "04",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 8.7187,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\04\\7_2.wav",
+      "speaker": "04",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 9.9847,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\04\\8_2.wav",
+      "speaker": "04",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 9.2228,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\04\\9_2.wav",
+      "speaker": "04",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 10.4701,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\04\\10_2.wav",
+      "speaker": "04",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 8.2635,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\05\\0_2.wav",
+      "speaker": "05",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 13.8632,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\05\\1_2.wav",
+      "speaker": "05",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 15.762,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\05\\2_2.wav",
+      "speaker": "05",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 16.0048,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\05\\3_2.wav",
+      "speaker": "05",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 13.3751,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\05\\4_2.wav",
+      "speaker": "05",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 12.4511,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\05\\5_2.wav",
+      "speaker": "05",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 19.0345,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\05\\6_2.wav",
+      "speaker": "05",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 9.5469,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\05\\7_2.wav",
+      "speaker": "05",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 13.7553,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\05\\8_2.wav",
+      "speaker": "05",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 12.4,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\05\\9_2.wav",
+      "speaker": "05",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 10.2146,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\05\\10_2.wav",
+      "speaker": "05",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 11.7578,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\06\\0_2.wav",
+      "speaker": "06",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 9.0491,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\06\\1_2.wav",
+      "speaker": "06",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 11.6778,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\06\\2_2.wav",
+      "speaker": "06",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 6.5895,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\06\\3_2.wav",
+      "speaker": "06",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 12.3418,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\06\\4_2.wav",
+      "speaker": "06",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 8.9382,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\06\\5_2.wav",
+      "speaker": "06",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 13.4316,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\06\\6_2.wav",
+      "speaker": "06",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 14.1693,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\06\\7_2.wav",
+      "speaker": "06",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 7.6053,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\06\\8_2.wav",
+      "speaker": "06",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 7.6699,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\06\\9_2.wav",
+      "speaker": "06",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 7.8431,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\06\\10_2.wav",
+      "speaker": "06",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 11.3239,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\07\\0_2.wav",
+      "speaker": "07",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 15.276,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\07\\1_2.wav",
+      "speaker": "07",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 11.214,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\07\\2_2.wav",
+      "speaker": "07",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 13.7236,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\07\\3_2.wav",
+      "speaker": "07",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 13.1462,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\07\\4_2.wav",
+      "speaker": "07",
+      "true": "cztery",
+      "pred": "dwa",
+      "dist": 16.6445,
+      "correct": false
+    },
+    {
+      "file": "data\\raw\\07\\5_2.wav",
+      "speaker": "07",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 12.5272,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\07\\6_2.wav",
+      "speaker": "07",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 10.2297,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\07\\7_2.wav",
+      "speaker": "07",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 9.9089,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\07\\8_2.wav",
+      "speaker": "07",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 12.5319,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\07\\9_2.wav",
+      "speaker": "07",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 11.7576,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\07\\10_2.wav",
+      "speaker": "07",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 11.5842,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\08\\0_2.wav",
+      "speaker": "08",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 13.3871,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\08\\1_2.wav",
+      "speaker": "08",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 14.2238,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\08\\2_2.wav",
+      "speaker": "08",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 8.6584,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\08\\3_2.wav",
+      "speaker": "08",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 17.1086,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\08\\4_2.wav",
+      "speaker": "08",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 13.8923,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\08\\5_2.wav",
+      "speaker": "08",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 11.9431,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\08\\6_2.wav",
+      "speaker": "08",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 10.682,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\08\\7_2.wav",
+      "speaker": "08",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 11.5117,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\08\\8_2.wav",
+      "speaker": "08",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 8.8531,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\08\\9_2.wav",
+      "speaker": "08",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 12.6731,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\08\\10_2.wav",
+      "speaker": "08",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 13.9857,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\09\\0_2.wav",
+      "speaker": "09",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 13.153,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\09\\1_2.wav",
+      "speaker": "09",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 13.0344,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\09\\2_2.wav",
+      "speaker": "09",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 15.4847,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\09\\3_2.wav",
+      "speaker": "09",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 8.4051,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\09\\4_2.wav",
+      "speaker": "09",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 12.7731,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\09\\5_2.wav",
+      "speaker": "09",
+      "true": "pięć",
+      "pred": "dwa",
+      "dist": 63.3515,
+      "correct": false
+    },
+    {
+      "file": "data\\raw\\09\\6_2.wav",
+      "speaker": "09",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 14.2079,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\09\\7_2.wav",
+      "speaker": "09",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 9.4573,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\09\\8_2.wav",
+      "speaker": "09",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 12.1145,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\09\\9_2.wav",
+      "speaker": "09",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 9.7883,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\09\\10_2.wav",
+      "speaker": "09",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 8.8764,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\10\\0_2.wav",
+      "speaker": "10",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 0.0,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\10\\1_2.wav",
+      "speaker": "10",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 8.9716,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\10\\2_2.wav",
+      "speaker": "10",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 11.8345,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\10\\3_2.wav",
+      "speaker": "10",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 11.7183,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\10\\4_2.wav",
+      "speaker": "10",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 11.6983,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\10\\5_2.wav",
+      "speaker": "10",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 15.3461,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\10\\6_2.wav",
+      "speaker": "10",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 12.3973,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\10\\7_2.wav",
+      "speaker": "10",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 9.7382,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\10\\8_2.wav",
+      "speaker": "10",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 8.6367,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\10\\9_2.wav",
+      "speaker": "10",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 7.3012,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\10\\10_2.wav",
+      "speaker": "10",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 12.9436,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\13\\0_2.wav",
+      "speaker": "13",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 6.8495,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\13\\1_2.wav",
+      "speaker": "13",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 7.2874,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\13\\2_2.wav",
+      "speaker": "13",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 7.6185,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\13\\3_2.wav",
+      "speaker": "13",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 7.2308,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\13\\4_2.wav",
+      "speaker": "13",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 7.5415,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\13\\5_2.wav",
+      "speaker": "13",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 7.341,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\13\\6_2.wav",
+      "speaker": "13",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 7.438,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\13\\7_2.wav",
+      "speaker": "13",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 7.4831,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\13\\8_2.wav",
+      "speaker": "13",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 7.3422,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\13\\9_2.wav",
+      "speaker": "13",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 10.4186,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\13\\10_2.wav",
+      "speaker": "13",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 8.5135,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\14\\0_2.wav",
+      "speaker": "14",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 11.9914,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\14\\1_2.wav",
+      "speaker": "14",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 10.301,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\14\\2_2.wav",
+      "speaker": "14",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 9.8529,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\14\\3_2.wav",
+      "speaker": "14",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 10.5513,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\14\\4_2.wav",
+      "speaker": "14",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 11.4833,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\14\\5_2.wav",
+      "speaker": "14",
+      "true": "pięć",
+      "pred": "dziewięć",
+      "dist": 13.7118,
+      "correct": false
+    },
+    {
+      "file": "data\\raw\\14\\6_2.wav",
+      "speaker": "14",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 15.36,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\14\\7_2.wav",
+      "speaker": "14",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 10.3271,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\14\\8_2.wav",
+      "speaker": "14",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 9.6628,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\14\\9_2.wav",
+      "speaker": "14",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 8.1775,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\14\\10_2.wav",
+      "speaker": "14",
+      "true": "dziesięć",
+      "pred": "sześć",
+      "dist": 22.7604,
+      "correct": false
+    },
+    {
+      "file": "data\\raw\\22\\0_2.wav",
+      "speaker": "22",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 18.0146,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\22\\1_2.wav",
+      "speaker": "22",
+      "true": "jeden",
+      "pred": "dziewięć",
+      "dist": 18.328,
+      "correct": false
+    },
+    {
+      "file": "data\\raw\\22\\2_2.wav",
+      "speaker": "22",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 17.5393,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\22\\3_2.wav",
+      "speaker": "22",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 15.7605,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\22\\4_2.wav",
+      "speaker": "22",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 17.2948,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\22\\5_2.wav",
+      "speaker": "22",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 20.7541,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\22\\6_2.wav",
+      "speaker": "22",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 15.6382,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\22\\7_2.wav",
+      "speaker": "22",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 17.4467,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\22\\8_2.wav",
+      "speaker": "22",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 15.2431,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\22\\9_2.wav",
+      "speaker": "22",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 16.1133,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\22\\10_2.wav",
+      "speaker": "22",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 17.2525,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\23\\0_2.wav",
+      "speaker": "23",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 10.7612,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\23\\1_2.wav",
+      "speaker": "23",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 10.2734,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\23\\2_2.wav",
+      "speaker": "23",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 14.8363,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\23\\3_2.wav",
+      "speaker": "23",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 8.4564,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\23\\4_2.wav",
+      "speaker": "23",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 9.2222,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\23\\5_2.wav",
+      "speaker": "23",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 9.6921,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\23\\6_2.wav",
+      "speaker": "23",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 9.9939,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\23\\7_2.wav",
+      "speaker": "23",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 10.7493,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\23\\8_2.wav",
+      "speaker": "23",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 11.8896,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\23\\9_2.wav",
+      "speaker": "23",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 10.343,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\23\\10_2.wav",
+      "speaker": "23",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 11.545,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\24\\0_2.wav",
+      "speaker": "24",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 12.1459,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\24\\1_2.wav",
+      "speaker": "24",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 7.5454,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\24\\2_2.wav",
+      "speaker": "24",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 13.9793,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\24\\3_2.wav",
+      "speaker": "24",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 15.1137,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\24\\4_2.wav",
+      "speaker": "24",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 17.5364,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\24\\5_2.wav",
+      "speaker": "24",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 13.4617,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\24\\6_2.wav",
+      "speaker": "24",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 18.0791,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\24\\7_2.wav",
+      "speaker": "24",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 13.1299,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\24\\8_2.wav",
+      "speaker": "24",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 15.3251,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\24\\9_2.wav",
+      "speaker": "24",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 14.1058,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\24\\10_2.wav",
+      "speaker": "24",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 12.4941,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\25\\0_2.wav",
+      "speaker": "25",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 11.7947,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\25\\1_2.wav",
+      "speaker": "25",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 9.7619,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\25\\2_2.wav",
+      "speaker": "25",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 11.3519,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\25\\3_2.wav",
+      "speaker": "25",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 7.2791,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\25\\4_2.wav",
+      "speaker": "25",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 8.7601,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\25\\5_2.wav",
+      "speaker": "25",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 10.5971,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\25\\6_2.wav",
+      "speaker": "25",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 11.0204,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\25\\7_2.wav",
+      "speaker": "25",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 18.4194,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\25\\8_2.wav",
+      "speaker": "25",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 10.7266,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\25\\9_2.wav",
+      "speaker": "25",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 8.7698,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\25\\10_2.wav",
+      "speaker": "25",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 11.2809,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\28\\0_2.wav",
+      "speaker": "28",
+      "true": "zero",
+      "pred": "zero",
+      "dist": 13.8175,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\28\\1_2.wav",
+      "speaker": "28",
+      "true": "jeden",
+      "pred": "jeden",
+      "dist": 10.677,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\28\\2_2.wav",
+      "speaker": "28",
+      "true": "dwa",
+      "pred": "dwa",
+      "dist": 11.9922,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\28\\3_2.wav",
+      "speaker": "28",
+      "true": "trzy",
+      "pred": "trzy",
+      "dist": 10.3214,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\28\\4_2.wav",
+      "speaker": "28",
+      "true": "cztery",
+      "pred": "cztery",
+      "dist": 12.8056,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\28\\5_2.wav",
+      "speaker": "28",
+      "true": "pięć",
+      "pred": "pięć",
+      "dist": 11.4092,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\28\\6_2.wav",
+      "speaker": "28",
+      "true": "sześć",
+      "pred": "sześć",
+      "dist": 11.8467,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\28\\7_2.wav",
+      "speaker": "28",
+      "true": "siedem",
+      "pred": "siedem",
+      "dist": 10.8675,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\28\\8_2.wav",
+      "speaker": "28",
+      "true": "osiem",
+      "pred": "osiem",
+      "dist": 9.7994,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\28\\9_2.wav",
+      "speaker": "28",
+      "true": "dziewięć",
+      "pred": "dziewięć",
+      "dist": 9.128,
+      "correct": true
+    },
+    {
+      "file": "data\\raw\\28\\10_2.wav",
+      "speaker": "28",
+      "true": "dziesięć",
+      "pred": "dziesięć",
+      "dist": 8.9104,
+      "correct": true
+    }
+  ]
+}

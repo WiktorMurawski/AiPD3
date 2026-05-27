@@ -29,9 +29,9 @@ def local_distance_matrix(
     Oblicza macierz odległości lokalnych D[i, j] = dist(seq_a[i], seq_b[j]).
     """
     if metric == "euclidean":
-        sq_a = np.sum(seq_a ** 2, axis=1)[:, np.newaxis]   # (T_a, 1)
-        sq_b = np.sum(seq_b ** 2, axis=1)[np.newaxis, :]   # (1, T_b)
-        cross = seq_a @ seq_b.T                             # (T_a, T_b)
+        sq_a = np.sum(seq_a ** 2, axis=1)[:, np.newaxis]
+        sq_b = np.sum(seq_b ** 2, axis=1)[np.newaxis, :]
+        cross = seq_a @ seq_b.T
         dist_sq = sq_a + sq_b - 2 * cross
         return np.sqrt(np.maximum(dist_sq, 0))
 

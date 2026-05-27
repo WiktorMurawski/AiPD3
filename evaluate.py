@@ -5,7 +5,7 @@ Ewaluacja klasyfikatora MFCC + DTW na zbiorze testowym.
 
 Uruchomienie:
     python evaluate.py --data data/raw --split repetition
-    python evaluate.py --data data/raw --split speaker --test-speakers speaker_1 speaker_2
+    python evaluate.py --data data/raw --split speaker --test-speakers 01 02 03
 """
 
 import sys
